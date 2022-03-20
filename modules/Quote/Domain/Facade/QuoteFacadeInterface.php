@@ -5,7 +5,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPInterface.php to edit this template
  */
 
-namespace Quote\Application\Facade;
+namespace Quote\Domain\Facade;
 
 use \Quote\Domain\Entity\Customer;
 use \Quote\Domain\Entity\Quote;

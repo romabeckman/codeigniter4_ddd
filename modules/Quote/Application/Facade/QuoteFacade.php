@@ -4,6 +4,7 @@ namespace Quote\Application\Facade;
 
 use \Quote\Domain\Entity\Customer;
 use \Quote\Domain\Entity\Quote;
+use \Quote\Domain\Facade\QuoteFacadeInterface;
 use \Quote\Domain\Query\CustomerQueryInterface;
 use \Quote\Domain\Repository\CustomerRepositoryInterface;
 use \Quote\Domain\Repository\ItemRepositoryInterface;
