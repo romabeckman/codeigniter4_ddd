@@ -2,7 +2,7 @@
 
 namespace Quote\Domain\Entity;
 
-use \Quote\Domain\Query\CustomerQueryInterface;
+use \Quote\Domain\Contract\Query\CustomerQueryInterface;
 use \Quote\Domain\Traits\IdTrait;
 use \Quote\Domain\ValueObject\Email;
 use \Quote\Domain\ValueObject\Id;
@@ -37,14 +37,6 @@ class Customer {
 
     public function getEmail(): Email {
         return $this->email;
-    }
-
-    public static function createInstanceFromArray(array $data, CustomerQueryInterface $customerQuery): self {
-        $id = new Id();
-        $name = new Name($data['firstname'], $data['lastname']);
-        $email = new Email($data['email'], $customerQuery);
-
-        return new Customer($id, $name, $email);
     }
 
 }

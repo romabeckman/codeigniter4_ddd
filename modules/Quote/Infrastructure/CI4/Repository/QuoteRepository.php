@@ -2,8 +2,8 @@
 
 namespace Quote\Infrastructure\CI4\Repository;
 
+use \Quote\Domain\Contract\Repository\QuoteRepositoryInterface;
 use \Quote\Domain\Entity\Quote;
-use \Quote\Domain\Repository\QuoteRepositoryInterface;
 use \Quote\Infrastructure\CI4\Model\QuoteModel;
 
 /**

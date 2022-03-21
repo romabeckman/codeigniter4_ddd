@@ -2,7 +2,7 @@
 
 namespace Quote\Domain\ValueObject;
 
-use \Quote\Domain\Query\CustomerQueryInterface;
+use \Quote\Domain\Contract\Query\CustomerQueryInterface;
 use \RuntimeException;
 
 /**

@@ -3,8 +3,8 @@
 namespace Tests\Unit\Quote;
 
 use \CodeIgniter\Test\CIUnitTestCase;
-use \Quote\Application\Facade\QuoteFacade;
-use \Quote\Application\Handler\QuoteStoreHandler;
+use \Quote\Application\Facade\CreateQuoteFacade;
+use \Quote\Application\Handler\CreateQuoteHandler;
 use \Quote\Infrastructure\CI4\Query\CustomerQuery;
 use \Quote\Infrastructure\CI4\Repository\CustomerRepository;
 use \Quote\Infrastructure\CI4\Repository\ItemRepository;
@@ -13,12 +13,12 @@ use \RuntimeException;
 
 class StoreHandlerTest extends CIUnitTestCase {
 
-    private QuoteStoreHandler $quoteStoreHandler;
+    private CreateQuoteHandler $createQuoteHandler;
     private array $data;
 
     public function setUp(): void {
-        $this->quoteStoreHandler = new QuoteStoreHandler(
-                new QuoteFacade(),
+        $this->createQuoteHandler = new CreateQuoteHandler(
+                new CreateQuoteFacade(),
                 new CustomerRepository(),
                 new QuoteRepository(),
                 new ItemRepository(),
@@ -50,14 +50,14 @@ class StoreHandlerTest extends CIUnitTestCase {
     }
 
     public function testStore() {
-        $this->quoteStoreHandler->handler($this->data);
+        $this->createQuoteHandler->handler($this->data);
         $this->assertTrue(TRUE);
     }
 
     public function testUniqueEmailStore() {
         $this->expectException(RuntimeException::class);
-        $this->quoteStoreHandler->handler($this->data);
-        $this->quoteStoreHandler->handler($this->data);
+        $this->createQuoteHandler->handler($this->data);
+        $this->createQuoteHandler->handler($this->data);
     }
 
 }

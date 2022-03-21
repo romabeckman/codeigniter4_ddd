@@ -2,7 +2,7 @@
 
 namespace Quote\Infrastructure\CI4\Query;
 
-use \Quote\Domain\Query\CustomerQueryInterface;
+use \Quote\Domain\Contract\Query\CustomerQueryInterface;
 use \Quote\Infrastructure\CI4\Model\CustomerModel;
 
 /**

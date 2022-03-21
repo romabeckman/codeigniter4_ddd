@@ -2,8 +2,8 @@
 
 namespace Quote\Infrastructure\CI4\Repository;
 
+use \Quote\Domain\Contract\Repository\CustomerRepositoryInterface;
 use \Quote\Domain\Entity\Quote;
-use \Quote\Domain\Repository\CustomerRepositoryInterface;
 use \Quote\Infrastructure\CI4\Model\CustomerModel;
 
 /**
@@ -15,7 +15,7 @@ class CustomerRepository implements CustomerRepositoryInterface {
 
     public function createCustomer(Quote $quote): void {
         $customer = $quote->getCustomer();
-        
+
         $customerModel = new CustomerModel();
         $customerModel->insert([
             'firstname' => $customer->getName()->getFirstname(),

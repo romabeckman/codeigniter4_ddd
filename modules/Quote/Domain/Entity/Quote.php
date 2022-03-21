@@ -18,21 +18,18 @@ class Quote {
 
     use IdTrait;
 
-    private Customer $customer;
-    private array $itens;
     private Id $id;
+    private Customer $customer;
     private ValidAt $validAt;
     private Status $status;
+    private array $itens;
 
-    public function __construct(Id $id, ValidAt $validAt, Status $status) {
+    public function __construct(Id $id, Customer $customer, ValidAt $validAt, Status $status, array $itens = []) {
         $this->id = $id;
+        $this->customer = $customer;
         $this->validAt = $validAt;
         $this->status = $status;
-    }
-
-    public function setCustomer(Customer $customer) {
-        $this->customer = $customer;
-        return $this;
+        $this->itens = $itens;
     }
 
     public function getCustomer(): Customer {
@@ -57,25 +54,6 @@ class Quote {
 
     public function addItem(Item $item): void {
         $this->itens[] = $item;
-    }
-
-    public static function addItensFromArray(Quote $quote, array $itens): void {
-        foreach ($itens as $arrayItem) {
-            $id = new Id();
-            $amount = new Amount($arrayItem['amount'], $arrayItem['quantity']);
-            $product = new Product($arrayItem['product']);
-
-            $item = new Item($id, $amount, $product);
-            $quote->addItem($item);
-        }
-    }
-
-    public static function createInstanceFromArray(array $data): self {
-        $id = new Id();
-        $validAt = ValidAt::createInstaceFromYYYYMMDD($data['valid_at']);
-        $status = new Status();
-
-        return new static($id, $validAt, $status);
     }
 
 }

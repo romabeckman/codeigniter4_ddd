@@ -1,0 +1,45 @@
+<?php
+
+namespace Quote\Application\Factory;
+
+use \Quote\Domain\Contract\Factory\QuoteFactoryInterface;
+use \Quote\Domain\Entity\Customer;
+use \Quote\Domain\Entity\Item;
+use \Quote\Domain\Entity\Quote;
+use \Quote\Domain\ValueObject\Amount;
+use \Quote\Domain\ValueObject\Id;
+use \Quote\Domain\ValueObject\Product;
+use \Quote\Domain\ValueObject\Status;
+use \Quote\Domain\ValueObject\ValidAt;
+
+/**
+ * Description of ParseArray
+ *
+ * @author Romário Beckman <romabeckman@yahoo.com.br>
+ */
+class QuoteFactory implements QuoteFactoryInterface {
+
+    private function addItensFromArray(array $itens): array {
+        $itens = [];
+
+        foreach ($itens as $arrayItem) {
+            $id = new Id();
+            $amount = new Amount($arrayItem['amount'], $arrayItem['quantity']);
+            $product = new Product($arrayItem['product']);
+
+            $item = new Item($id, $amount, $product);
+            $itens[] = $item;
+        }
+
+        return $itens;
+    }
+
+    public function createWith(array $data, Customer $customer): Quote {
+        $id = new Id();
+        $validAt = ValidAt::createInstaceFromYYYYMMDD($data['quote']['valid_at']);
+        $status = new Status();
+        $itens = static::addItensFromArray($data['itens']);
+        return new Quote($id, $customer, $validAt, $status, $itens);
+    }
+
+}

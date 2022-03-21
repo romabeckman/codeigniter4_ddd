@@ -25,4 +25,8 @@ class Amount {
         return $this->quantity;
     }
 
+    public function getTotal(int $precision = 2): float {
+        return round($this->quantity * $this->amount, $precision);
+    }
+
 }

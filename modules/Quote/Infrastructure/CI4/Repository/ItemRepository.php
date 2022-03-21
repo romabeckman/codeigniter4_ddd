@@ -2,9 +2,9 @@
 
 namespace Quote\Infrastructure\CI4\Repository;
 
+use \Quote\Domain\Contract\Repository\ItemRepositoryInterface;
 use \Quote\Domain\Entity\Item;
 use \Quote\Domain\Entity\Quote;
-use \Quote\Domain\Repository\ItemRepositoryInterface;
 use \Quote\Infrastructure\CI4\Model\ItemModel;
 
 /**
