@@ -1,4 +1,0 @@
-Store Handler (Tests\Unit\Quote\StoreHandler)
- [x] Store
- [ ] Unique email store
-
