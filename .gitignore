@@ -104,7 +104,7 @@ _modules/*
 
 # Netbeans
 nbproject/
-#build/
+build/
 nbbuild/
 dist/
 nbdist/
@@ -126,6 +126,6 @@ nb-configuration.xml
 
 /results/
 /phpunit*.xml
-#/.phpunit.*.cache
+/.phpunit.*.cache
 
 /.php-cs-fixer.php
