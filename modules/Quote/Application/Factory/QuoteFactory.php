@@ -20,7 +20,7 @@ use \Quote\Domain\ValueObject\ValidAt;
 class QuoteFactory implements QuoteFactoryInterface {
 
     private function addItensFromArray(array $itens): array {
-        $itens = [];
+        $itensEntity = [];
 
         foreach ($itens as $arrayItem) {
             $id = new Id();
@@ -28,17 +28,17 @@ class QuoteFactory implements QuoteFactoryInterface {
             $product = new Product($arrayItem['product']);
 
             $item = new Item($id, $amount, $product);
-            $itens[] = $item;
+            $itensEntity[] = $item;
         }
 
-        return $itens;
+        return $itensEntity;
     }
 
     public function createWith(array $data, Customer $customer): Quote {
         $id = new Id();
         $validAt = ValidAt::createInstaceFromYYYYMMDD($data['quote']['valid_at']);
         $status = new Status();
-        $itens = static::addItensFromArray($data['itens']);
+        $itens = $this->addItensFromArray($data['itens']);
         return new Quote($id, $customer, $validAt, $status, $itens);
     }
 

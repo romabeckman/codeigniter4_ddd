@@ -2,7 +2,7 @@
 
 namespace Quote\Domain\Contract\Factory;
 
-use \Quote\Domain\Contract\Query\CustomerQueryInterface;
+use \Quote\Domain\Contract\Service\ValidateEmailServiceInterface;
 use \Quote\Domain\Entity\Customer;
 
 /**
@@ -12,6 +12,6 @@ use \Quote\Domain\Entity\Customer;
  */
 interface CustomerFactoryInterface {
 
-    public function createWith(array $data, CustomerQueryInterface $customerQuery): Customer;
+    public function createWith(array $data, ValidateEmailServiceInterface $validateEmailService): Customer;
 
 }

@@ -2,7 +2,7 @@
 
 namespace Quote\Domain\ValueObject;
 
-use \Quote\Domain\Contract\Query\CustomerQueryInterface;
+use \Quote\Domain\Contract\Service\ValidateEmailServiceInterface;
 use \RuntimeException;
 
 /**
@@ -13,19 +13,10 @@ use \RuntimeException;
 class Email {
 
     private string $email;
-    private CustomerQueryInterface $customerQuery;
 
-    public function __construct(string $email, CustomerQueryInterface $customerQuery) {
-        $this->customerQuery = $customerQuery;
-        $this->setEmail($email);
-    }
-
-    private function setEmail(string $email): void {
-        if ($this->customerQuery->existsEmail($email)) {
-            throw new RuntimeException('Email already exist');
-        }
-
+    public function __construct(string $email, ValidateEmailServiceInterface $validateEmailService) {
         $this->email = $email;
+        $validateEmailService->valid($this);
     }
 
     public function getEmail(): string {

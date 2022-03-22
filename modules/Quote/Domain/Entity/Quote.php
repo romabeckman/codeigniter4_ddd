@@ -56,4 +56,8 @@ class Quote {
         $this->itens[] = $item;
     }
 
+    public function countItens(): int {
+        return count($this->itens);
+    }
+
 }
