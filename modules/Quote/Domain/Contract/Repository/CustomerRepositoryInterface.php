@@ -2,7 +2,7 @@
 
 namespace Quote\Domain\Contract\Repository;
 
-use \Quote\Domain\Entity\Quote;
+use \Quote\Domain\AggregateRoot\Quote;
 
 /**
  *

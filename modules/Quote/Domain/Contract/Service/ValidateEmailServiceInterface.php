@@ -2,7 +2,7 @@
 
 namespace Quote\Domain\Contract\Service;
 
-use \Quote\Domain\ValueObject\Email;
+use \SharedResource\Domain\ValueObject\Email;
 
 /**
  *

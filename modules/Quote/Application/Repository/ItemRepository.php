@@ -1,10 +1,10 @@
 <?php
 
-namespace Quote\Infrastructure\CI4\Repository;
+namespace Quote\Application\Repository;
 
 use \Quote\Domain\Contract\Repository\ItemRepositoryInterface;
 use \Quote\Domain\Entity\Item;
-use \Quote\Domain\Entity\Quote;
+use \Quote\Domain\AggregateRoot\Quote;
 use \Quote\Infrastructure\CI4\Model\ItemModel;
 
 /**

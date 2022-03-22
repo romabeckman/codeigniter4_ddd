@@ -3,11 +3,10 @@
 namespace Quote\Application\Factory;
 
 use \Quote\Domain\Contract\Factory\CustomerFactoryInterface;
-use \Quote\Domain\Contract\Service\ValidateEmailServiceInterface;
 use \Quote\Domain\Entity\Customer;
-use \Quote\Domain\ValueObject\Email;
-use \Quote\Domain\ValueObject\Id;
-use \Quote\Domain\ValueObject\Name;
+use \SharedResource\Domain\ValueObject\Email;
+use \SharedResource\Domain\ValueObject\Id;
+use \SharedResource\Domain\ValueObject\Name;
 
 /**
  * Description of MakeCustomerFromArryService
@@ -16,10 +15,10 @@ use \Quote\Domain\ValueObject\Name;
  */
 class CustomerFactory implements CustomerFactoryInterface {
 
-    public function createWith(array $data, ValidateEmailServiceInterface $validateEmailService): Customer {
+    public function createWith(array $data): Customer {
         $id = new Id();
         $name = new Name($data['firstname'], $data['lastname']);
-        $email = new Email($data['email'], $validateEmailService);
+        $email = new Email($data['email']);
         return new Customer($id, $name, $email);
     }
 

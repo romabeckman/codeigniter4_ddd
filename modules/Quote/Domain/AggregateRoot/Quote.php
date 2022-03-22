@@ -1,24 +1,21 @@
 <?php
 
-namespace Quote\Domain\Entity;
+namespace Quote\Domain\AggregateRoot;
 
-use \Quote\Domain\Traits\IdTrait;
-use \Quote\Domain\ValueObject\Amount;
-use \Quote\Domain\ValueObject\Id;
-use \Quote\Domain\ValueObject\Product;
+use \Quote\Domain\Entity\Customer;
+use \Quote\Domain\Entity\Item;
 use \Quote\Domain\ValueObject\Status;
 use \Quote\Domain\ValueObject\ValidAt;
+use \SharedResource\Domain\AggregateRoot\AggregateRootAbstract;
+use \SharedResource\Domain\ValueObject\Id;
 
 /**
  * Description of Quote
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Quote {
+class Quote extends AggregateRootAbstract {
 
-    use IdTrait;
-
-    private Id $id;
     private Customer $customer;
     private ValidAt $validAt;
     private Status $status;
@@ -38,10 +35,6 @@ class Quote {
 
     public function getItens(): array {
         return $this->itens;
-    }
-
-    public function getId(): Id {
-        return $this->id;
     }
 
     public function getValidAt(): ValidAt {

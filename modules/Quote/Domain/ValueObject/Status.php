@@ -2,12 +2,15 @@
 
 namespace Quote\Domain\ValueObject;
 
+use \OutOfRangeException;
+use \SharedResource\Domain\ValueObject\ValueObjectAbstract;
+
 /**
  * Description of Status
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Status {
+class Status extends ValueObjectAbstract {
 
     public const QUOTE_STATUS_APPROVED = 'approved';
     public const QUOTE_STATUS_PENDING = 'pending';

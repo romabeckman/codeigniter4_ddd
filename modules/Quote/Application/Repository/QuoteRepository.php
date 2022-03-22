@@ -1,9 +1,9 @@
 <?php
 
-namespace Quote\Infrastructure\CI4\Repository;
+namespace Quote\Application\Repository;
 
 use \Quote\Domain\Contract\Repository\QuoteRepositoryInterface;
-use \Quote\Domain\Entity\Quote;
+use \Quote\Domain\AggregateRoot\Quote;
 use \Quote\Infrastructure\CI4\Model\QuoteModel;
 
 /**
@@ -15,13 +15,12 @@ class QuoteRepository implements QuoteRepositoryInterface {
 
     public function createQuote(Quote $quote): void {
         $quoteModel = new QuoteModel();
-        $quoteModel->insert(
-                [
-                    'customer_id' => $quote->getCustomer()->getId()->getId(),
-                    'valid_at' => $quote->getValidAt()->formatToYYYYMMDD(),
-                    'status' => $quote->getStatus()->getStatus()
-                ]
-        );
+        $data = [
+            'customer_id' => $quote->getCustomer()->getId()->getId(),
+            'valid_at' => $quote->getValidAt()->formatToYYYYMMDD(),
+            'status' => $quote->getStatus()->getStatus()
+        ];
+        $quoteModel->insert($data);
 
         $quote->replaceId($quoteModel->insertID);
     }

@@ -2,20 +2,17 @@
 
 namespace Quote\Domain\Entity;
 
-use \Quote\Domain\Traits\IdTrait;
-use \Quote\Domain\ValueObject\Amount;
-use \Quote\Domain\ValueObject\Id;
 use \Quote\Domain\ValueObject\Product;
+use \SharedResource\Domain\Entity\EntityAbstract;
+use \SharedResource\Domain\ValueObject\Amount;
+use \SharedResource\Domain\ValueObject\Id;
 
 /**
  * Description of Item
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Item {
-
-    use IdTrait;
-
+class Item extends EntityAbstract {
     private Id $id;
     private Amount $amount;
     private Product $product;
@@ -26,10 +23,6 @@ class Item {
         $this->product = $product;
     }
 
-    public function getId(): Id {
-        return $this->id;
-    }
-
     public function getAmount(): Amount {
         return $this->amount;
     }
@@ -37,7 +30,5 @@ class Item {
     public function getProduct(): Product {
         return $this->product;
     }
-
-
 
 }

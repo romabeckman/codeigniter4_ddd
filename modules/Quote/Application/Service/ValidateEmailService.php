@@ -4,8 +4,8 @@ namespace Quote\Application\Service;
 
 use \Quote\Domain\Contract\Query\CustomerQueryInterface;
 use \Quote\Domain\Contract\Service\ValidateEmailServiceInterface;
-use \Quote\Domain\ValueObject\Email;
 use \RuntimeException;
+use \SharedResource\Domain\ValueObject\Email;
 
 /**
  * Description of ValidateEmailService

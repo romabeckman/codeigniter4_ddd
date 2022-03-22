@@ -5,9 +5,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/PHPTrait.php to edit this template
  */
 
-namespace Quote\Domain\Traits;
+namespace SharedResource\Domain\Traits;
 
-use \Quote\Domain\ValueObject\Id;
+use \SharedResource\Domain\ValueObject\Id;
 
 /**
  *
@@ -15,8 +15,15 @@ use \Quote\Domain\ValueObject\Id;
  */
 trait IdTrait {
 
-    public function replaceId(int $id) {
+    private Id $id;
+
+    public function getId(): Id {
+        return $this->id;
+    }
+
+    public function replaceId(mixed $id): self {
         $this->id = new Id($id);
+        return $this;
     }
 
 }

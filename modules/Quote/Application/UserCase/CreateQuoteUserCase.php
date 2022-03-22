@@ -26,8 +26,10 @@ class CreateQuoteUserCase {
     ) {}
 
     public function handler(array $data): void {
-        $customer = $this->customerFactory->createWith($data['customer'], $this->validateEmailService);
+        $customer = $this->customerFactory->createWith($data['customer']);
         $quote = $this->quoteFactory->createWith($data, $customer);
+
+        $this->validateEmailService->valid($customer->getEmail());
 
         $this->customerRepository->createCustomer($quote);
         $this->quoteRepository->createQuote($quote);

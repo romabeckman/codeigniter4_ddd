@@ -2,12 +2,14 @@
 
 namespace Quote\Domain\ValueObject;
 
+use \SharedResource\Domain\ValueObject\ValueObjectAbstract;
+
 /**
  * Description of Name
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Product {
+class Product extends ValueObjectAbstract {
 
     private string $product;
 

@@ -3,7 +3,7 @@
 namespace Quote\Domain\Contract\Factory;
 
 use \Quote\Domain\Entity\Customer;
-use \Quote\Domain\Entity\Quote;
+use \Quote\Domain\AggregateRoot\Quote;
 
 /**
  * Description of ParseArray

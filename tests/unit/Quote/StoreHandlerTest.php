@@ -3,15 +3,14 @@
 namespace Tests\Unit\Quote;
 
 use \CodeIgniter\Test\CIUnitTestCase;
-use \Quote\Application\Facade\CreateQuoteFacade;
 use \Quote\Application\Factory\CustomerFactory;
 use \Quote\Application\Factory\QuoteFactory;
+use \Quote\Application\Query\CustomerQuery;
+use \Quote\Application\Repository\CustomerRepository;
+use \Quote\Application\Repository\ItemRepository;
+use \Quote\Application\Repository\QuoteRepository;
 use \Quote\Application\Service\ValidateEmailService;
 use \Quote\Application\UserCase\CreateQuoteUserCase;
-use \Quote\Infrastructure\CI4\Query\CustomerQuery;
-use \Quote\Infrastructure\CI4\Repository\CustomerRepository;
-use \Quote\Infrastructure\CI4\Repository\ItemRepository;
-use \Quote\Infrastructure\CI4\Repository\QuoteRepository;
 use \RuntimeException;
 
 class StoreHandlerTest extends CIUnitTestCase {

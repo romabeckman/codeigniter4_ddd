@@ -1,13 +1,13 @@
 <?php
 
-namespace Quote\Domain\ValueObject;
+namespace SharedResource\Domain\ValueObject;
 
 /**
  * Description of Amount
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Amount {
+class Amount extends ValueObjectAbstract {
 
     private float $amount;
     private int $quantity;

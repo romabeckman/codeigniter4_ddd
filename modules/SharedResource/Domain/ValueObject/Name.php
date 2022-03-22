@@ -1,13 +1,13 @@
 <?php
 
-namespace Quote\Domain\ValueObject;
+namespace SharedResource\Domain\ValueObject;
 
 /**
  * Description of Name
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Name {
+class Name extends ValueObjectAbstract {
 
     private string $firstname;
     private string $lastname;

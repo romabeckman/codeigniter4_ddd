@@ -2,20 +2,17 @@
 
 namespace Quote\Domain\Entity;
 
-use \Quote\Domain\Contract\Query\CustomerQueryInterface;
-use \Quote\Domain\Traits\IdTrait;
-use \Quote\Domain\ValueObject\Email;
-use \Quote\Domain\ValueObject\Id;
-use \Quote\Domain\ValueObject\Name;
+use \SharedResource\Domain\Entity\EntityAbstract;
+use \SharedResource\Domain\ValueObject\Email;
+use \SharedResource\Domain\ValueObject\Id;
+use \SharedResource\Domain\ValueObject\Name;
 
 /**
  * Description of Customer
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class Customer {
-
-    use IdTrait;
+class Customer extends EntityAbstract {
 
     private Id $id;
     private Name $name;
@@ -25,10 +22,6 @@ class Customer {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-    }
-
-    public function getId(): Id {
-        return $this->id;
     }
 
     public function getName(): Name {

@@ -2,15 +2,15 @@
 
 namespace Quote\Application\Factory;
 
+use \Quote\Domain\AggregateRoot\Quote;
 use \Quote\Domain\Contract\Factory\QuoteFactoryInterface;
 use \Quote\Domain\Entity\Customer;
 use \Quote\Domain\Entity\Item;
-use \Quote\Domain\Entity\Quote;
-use \Quote\Domain\ValueObject\Amount;
-use \Quote\Domain\ValueObject\Id;
 use \Quote\Domain\ValueObject\Product;
 use \Quote\Domain\ValueObject\Status;
 use \Quote\Domain\ValueObject\ValidAt;
+use \SharedResource\Domain\ValueObject\Amount;
+use \SharedResource\Domain\ValueObject\Id;
 
 /**
  * Description of ParseArray

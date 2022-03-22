@@ -3,13 +3,14 @@
 namespace Quote\Domain\ValueObject;
 
 use \DateTime;
+use \SharedResource\Domain\ValueObject\ValueObjectAbstract;
 
 /**
  * Description of ValidAt
  *
  * @author Romário Beckman <romabeckman@yahoo.com.br>
  */
-class ValidAt {
+class ValidAt extends ValueObjectAbstract {
 
     private DateTime $validAt;
 

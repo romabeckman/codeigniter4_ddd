@@ -1,6 +1,6 @@
 <?php
 
-namespace Quote\Infrastructure\CI4\Query;
+namespace Quote\Application\Query;
 
 use \Quote\Domain\Contract\Query\CustomerQueryInterface;
 use \Quote\Infrastructure\CI4\Model\CustomerModel;
